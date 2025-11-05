@@ -1,0 +1,44 @@
+name = "Objective-C"
+grammar = "objc"
+path_suffixes = ["m", "mm", "h"]
+line_comments = ["// ", "//"]
+block_comment = ["/*", "*/"]
+
+[[brackets]]
+start = "{"
+end = "}"
+close = true
+newline = true
+
+[[brackets]]
+start = "["
+end = "]"
+close = true
+newline = true
+
+[[brackets]]
+start = "("
+end = ")"
+close = true
+newline = true
+
+[[brackets]]
+start = "\""
+end = "\""
+close = true
+newline = false
+not_in = ["string", "comment"]
+
+[[brackets]]
+start = "'"
+end = "'"
+close = true
+newline = false
+not_in = ["string", "comment"]
+
+[[brackets]]
+start = "<"
+end = ">"
+close = true
+newline = false
+not_in = ["string", "comment"]
