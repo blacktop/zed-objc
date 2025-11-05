@@ -1,3 +1,4 @@
+; inherits: c
 [
   "const"
   "enum"
@@ -133,8 +134,6 @@
   (sized_type_specifier)
 ] @type
 
-; Objective-C specific (from official tree-sitter-grammars/tree-sitter-objc)
-
 ; Preprocs
 
 (preproc_undef
@@ -241,7 +240,7 @@
 
 ; Attributes
 
-(availability_attribute_specifier 
+(availability_attribute_specifier
   [
     "CF_FORMAT_FUNCTION" "NS_AVAILABLE" "__IOS_AVAILABLE" "NS_AVAILABLE_IOS"
     "API_AVAILABLE" "API_UNAVAILABLE" "API_DEPRECATED" "NS_ENUM_AVAILABLE_IOS"
@@ -324,10 +323,10 @@
 
 (method_parameter declarator: (identifier) @parameter)
 
-(parameter_declaration 
-  declarator: (function_declarator 
-                declarator: (parenthesized_declarator 
-                              (block_pointer_declarator 
+(parameter_declaration
+  declarator: (function_declarator
+                declarator: (parenthesized_declarator
+                              (block_pointer_declarator
                                 declarator: (identifier) @parameter))))
 
 "..." @parameter.builtin

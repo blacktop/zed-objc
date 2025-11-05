@@ -1,3 +1,4 @@
+; inherits: c
 [
   (field_expression)
   (assignment_expression)
@@ -17,14 +18,3 @@
 (do_statement) @start.do
 (switch_statement) @start.switch
 (else_clause) @start.else
-
-; Objective-C specific indents
-[
-  (class_interface)
-  (class_implementation)
-  (protocol_declaration)
-  (method_definition)
-  (block_literal)
-  (dictionary_literal)
-  (array_literal)
-] @indent
