@@ -32,7 +32,8 @@ impl zed::Extension for ObjcExtension {
                 "--import-insertions".to_string(),
                 // Enable clang-tidy checks
                 "--clang-tidy".to_string(),
-                // Enable completion edits near cursor (dot-to-arrow conversion)
+                // Show full signatures in completion labels. Dot-to-arrow needs the
+                // `editsNearCursor` client capability, which the extension API cannot set.
                 "--completion-style=detailed".to_string(),
                 // Set number of workers for background index
                 "-j=4".to_string(),
