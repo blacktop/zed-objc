@@ -1,4 +1,3 @@
-; inherits: c
 [
   (field_expression)
   (assignment_expression)

@@ -1,4 +1,3 @@
-; inherits: c
 
 [
   (class_declaration)
