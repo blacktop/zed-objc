@@ -1,4 +1,3 @@
-; inherits: c
 [
   "const"
   "enum"
