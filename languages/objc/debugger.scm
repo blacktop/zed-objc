@@ -6,12 +6,17 @@
 (method_parameter
   declarator: (identifier) @debug-variable)
 
+; Class receivers share the identifier node; use the same uppercase-name
+; convention as highlights.scm, while still allowing lowercase ivars.
 (message_expression
   receiver: (identifier) @debug-variable
-  (#not-match? @debug-variable "^[A-Z_][A-Z_0-9]*$"))
+  (#not-match? @debug-variable "^[A-Z]|^_[A-Z_0-9]*$"))
 
+; Arguments immediately follow a colon or variadic comma, not a selector.
+; Capture the separator so repeated separators produce distinct matches.
 (message_expression
-  (identifier) @debug-variable
+  [":" ","] @_argument-delimiter
+  . (identifier) @debug-variable
   (#not-match? @debug-variable "^[A-Z_][A-Z_0-9]*$"))
 
 (for_statement

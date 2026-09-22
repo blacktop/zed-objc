@@ -15,13 +15,45 @@
     "}")) @function.around
 
 (class_interface
-  (_)* @class.inside) @class.around
+  [
+    (comment)
+    (instance_variables)
+    (declaration)
+    (property_declaration)
+    (method_declaration)
+    (function_definition)
+    (type_definition)
+    (struct_specifier)
+    (preproc_if)
+    (preproc_ifdef)
+    (preproc_def)
+    (preproc_undef)
+    (preproc_call)
+  ]* @class.inside) @class.around
 
 (class_implementation
-  (implementation_definition)* @class.inside) @class.around
+  [
+    (comment)
+    (instance_variables)
+    (implementation_definition)
+  ]* @class.inside) @class.around
 
 (protocol_declaration
-  (_)* @class.inside) @class.around
+  [
+    (comment)
+    (declaration)
+    (property_declaration)
+    (method_declaration)
+    (function_definition)
+    (type_definition)
+    (struct_specifier)
+    (preproc_if)
+    (preproc_ifdef)
+    (preproc_def)
+    (preproc_undef)
+    (preproc_call)
+    (qualified_protocol_interface_declaration)
+  ]* @class.inside) @class.around
 
 ; C (mirrors Zed's built-in C text objects)
 

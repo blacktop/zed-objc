@@ -39,8 +39,18 @@
     (struct_declarator
       [
         (identifier) @name
+        (function_declarator
+          declarator: (parenthesized_declarator
+            (block_pointer_declarator
+              declarator: (identifier) @name)))
         (pointer_declarator
-          declarator: (identifier) @name)
+          declarator: [
+            (identifier) @name
+            (function_declarator
+              declarator: (parenthesized_declarator
+                (block_pointer_declarator
+                  declarator: (identifier) @name)))
+          ])
       ]))) @item
 
 ; C (mirrors Zed's built-in C outline)
