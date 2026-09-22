@@ -1,4 +1,3 @@
-; inherits: c
 ((comment) @injection.content
  (#set! injection.language "comment")
 )

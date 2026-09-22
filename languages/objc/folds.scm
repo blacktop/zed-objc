@@ -1,5 +1,3 @@
-; inherits: c
-
 [
   (class_declaration)
   (class_interface)
@@ -17,4 +15,27 @@
   (ms_asm_block)
   (dictionary_literal)
   (array_literal)
+] @fold
+
+; Explicit captures for C regions within Objective-C.
+[
+  (for_statement)
+  (if_statement)
+  (while_statement)
+  (do_statement)
+  (switch_statement)
+  (case_statement)
+  (function_definition)
+  (compound_statement)
+  (struct_specifier)
+  (enum_specifier)
+  (comment)
+  (preproc_if)
+  (preproc_elif)
+  (preproc_else)
+  (preproc_ifdef)
+  (preproc_function_def)
+  (initializer_list)
+  (gnu_asm_expression)
+  (preproc_include)+
 ] @fold
