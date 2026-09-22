@@ -39,6 +39,13 @@
 
 ; Variable declarations
 (declaration
+  declarator: (identifier) @debug-variable)
+
+(declaration
+  declarator: (pointer_declarator
+    declarator: (identifier) @debug-variable))
+
+(declaration
   declarator: (init_declarator
     declarator: (identifier) @debug-variable))
 

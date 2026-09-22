@@ -60,6 +60,24 @@ class QueryTests(unittest.TestCase):
                 self.assertEqual([node.text.decode() for node in properties[0]["context"]], ["@property"])
                 self.assertEqual(properties[0]["item"][0].text.decode(), declaration)
 
+    def test_local_declaration_variables(self):
+        for declaration, expected in [
+            ("int count;", ["count"]),
+            ("int *pointer;", ["pointer"]),
+            ("int count, *pointer;", ["count", "pointer"]),
+            ("int *pointer = 0;", ["pointer"]),
+            ("int count, initialized = 0;", ["count", "initialized"]),
+            ("int helper(void);", []),
+        ]:
+            with self.subTest(declaration=declaration):
+                matches = self.matches("debugger", f"void run() {{ {declaration} }}")
+                captures = [
+                    node.text.decode()
+                    for _, match in matches
+                    for node in match.get("debug-variable", [])
+                ]
+                self.assertEqual(sorted(captures), sorted(expected))
+
     def test_message_variables(self):
         for expression, expected in [
             ("[obj doThing]", ["obj"]),
